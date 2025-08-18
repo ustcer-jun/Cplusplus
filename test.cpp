@@ -2,19 +2,32 @@
 using namespace std;
 
 
-class Solution {
-public:
-    int Sum_Solution(int n) {
-        int Sum = n;
-        bool ContinueAdd = n>1 && (Sum += Sum_Solution(n-1));
-        return Sum;
-    }
-};
+// class Solution {
+// public:
+//     int Sum_Solution(int n) {
+//         int Sum = n;
+//         bool ContinueAdd = n>1 && (Sum += Sum_Solution(n-1));
+//         return Sum;
+//     }
+// };
 
-int main(){
-    Solution s;
-    cout<<"Sum(5) = "<<Solution().Sum_Solution(5)<<endl;//利用匿名对象
-    //cout<<"Sum(5) = "<<s.Sum_Solution(5)<<endl;
+// int main(){
+//     Solution s;
+//     cout<<"Sum(5) = "<<Solution().Sum_Solution(5)<<endl;//利用匿名对象
+//     //cout<<"Sum(5) = "<<s.Sum_Solution(5)<<endl;
+// }
+
+#include <stdio.h>
+
+int main() {
+    int a = 0x12345678;
+    unsigned char *p = (unsigned char*)&a;
+
+    for (int i = 0; i < sizeof(a); i++) {
+        printf("p[%d] = 0x%X\n", i, p[i]);
+    }
+
+    return 0;
 }
 
 

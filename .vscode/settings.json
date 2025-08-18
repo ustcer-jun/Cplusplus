@@ -105,6 +105,13 @@
     "vector": "cpp",
     "algorithm": "cpp",
     "charconv": "cpp",
-    "forward_list": "cpp"
+    "forward_list": "cpp",
+    "assert.h": "c",
+    "__config": "cpp",
+    "tuple": "cpp",
+    "list": "cpp",
+    "type_traits": "cpp",
+    "utility": "cpp",
+    "iterator": "cpp"
   }
 }
