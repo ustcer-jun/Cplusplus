@@ -88,29 +88,70 @@ using namespace std;
 //     }
 //     return s1.empty();
 // }
-bool isValid(string s) {
-    stack<char> st;
-    for(char c : s){
-        if(c == '(' || c == '[' || c == '{'){
-            st.push(c);
-        } 
-        else if(c == ')' || c == ']' || c == '}'){
-            if(st.empty()) return false;
-            if((c == ')' && st.top() != '(') ||
-               (c == ']' && st.top() != '[') ||
-               (c == '}' && st.top() != '{')){
-                return false;
-               }
-            st.pop();
-        }
-        else{
-            return false;
-        }
-    }
-    return st.empty();
-}
+// bool isValid(string s) {
+//     stack<char> st;
+//     for(char c : s){
+//         if(c == '(' || c == '[' || c == '{'){
+//             st.push(c);
+//         } 
+//         else if(c == ')' || c == ']' || c == '}'){
+//             if(st.empty()) return false;
+//             if((c == ')' && st.top() != '(') ||
+//                (c == ']' && st.top() != '[') ||
+//                (c == '}' && st.top() != '{')){
+//                 return false;
+//                }
+//             st.pop();
+//         }
+//         else{
+//             return false;
+//         }
+//     }
+//     return st.empty();
+// }
 
-int main() {
-    string s = "{[(555";
-    cout << (isValid(s) ? "匹配成功" : "匹配失败") << endl;
+// int main() {
+//     string s = "{[(555";
+//     cout << (isValid(s) ? "匹配成功" : "匹配失败") << endl;
+// }
+#include <list>
+
+template<typename T, class Container>
+class my_stack{
+public:
+    void push(const T& val){
+        _con.push_back(val);
+    }
+    void pop(){
+        _con.pop_back();
+    }
+    size_t size(){
+        return _con.szie();
+    }
+    T& top(){
+        return _con.back();
+    }
+    bool empty(){
+        return _con.empty();
+    }
+
+private:
+    Container _con;
+};
+
+int main(){
+    // my_stack<int,vector<int>> s1;
+    // my_stack<char,string> s1;
+    my_stack<char,list<char>> s1;
+    s1.push('a');
+    s1.push('b');
+    s1.push('c');
+    s1.push('d');
+    while (!s1.empty())
+    {
+        cout<<s1.top()<<" ";
+        s1.pop();
+    }
+    cout<<endl;
+    
 }
